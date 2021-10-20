@@ -1,0 +1,75 @@
+{
+  "name": "vue-zoomable-lightbox",
+  "description": "A zoomable image responsive lightbox component for Vuejs",
+  "version": "1.0.0",
+  "author": "Shoaib <shoaibkhandev@gmail.com>",
+  "license": "MIT",
+  "main": "dist/vue-zoomable-lightbox.min.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --open --config build/webpack.dev.conf.js --mode development",
+    "build": "rimraf dist && webpack --progress --hide-modules --config build/webpack.prod.conf.js --mode production",
+    "lint": "eslint --ext .js,.vue src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoaibkhandev/vue-zoomable-lightbox"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "lightbox",
+    "gallery",
+    "zoom",
+    "responsive",
+    "image gallery",
+    "image lightbox",
+    "image zoom",
+    "responsive image",
+    "zoomable lightbox",
+    "ligthbox zoom"
+  ],
+  "bugs": {
+    "url": "https://github.com/shoaibkhandev/vue-zoomable-lightbox/issues"
+  },
+  "homepage": "https://github.com/shoaibkhandev/vue-zoomable-lightbox",
+  "dependencies": {
+    "@babel/runtime": "7.9.2",
+    "hammerjs": "^2.0.8",
+    "mobile-device-detect": "^0.4.3",
+    "vue-inner-image-zoom": "^1.1.1",
+    "vue-lazyload": "^1.3.2",
+    "vue-pinch-zoom": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/plugin-transform-runtime": "7.9.0",
+    "@babel/preset-env": "7.9.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "5.1.1",
+    "css-loader": "3.5.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "rimraf": "^3.0.2",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^4.2.2",
+    "url-loader": "^4.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "4.44.2",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "vetur": {
+    "tags": "dist/vetur/tags.json",
+    "attributes": "dist/vetur/attributes.json"
+  }
+}

@@ -1,0 +1,180 @@
+<template>
+  <div id="app" class="row">
+    <LightBox
+      ref="lightbox"
+      :media="media"
+      :show-light-box="false"
+      :site-loading="siteLoading"
+    />
+    <section class="section">
+      <h1>Zoomable image lighbox for VueJs</h1>
+      <div class="grid">
+        <div
+          v-for="(image, index) in media"
+          :key="index"
+          class="item"
+          :class="image.class"
+          @click="openGallery(index)"
+          :style="`background-image: url(${image.src || image.thumb})`"
+        >
+          <div class="item__details" v-html="image.caption"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+import LightBox from "components/LightBox";
+
+import siteLoading from "./siteloading.gif";
+import { media, paragraphs } from "./dummy";
+
+export default {
+  components: {
+    LightBox,
+  },
+
+  data() {
+    return {
+      media,
+      siteLoading,
+      paragraphs,
+    };
+  },
+
+  methods: {
+    openGallery(index) {
+      this.$refs.lightbox.showImage(index);
+    },
+  },
+};
+</script>
+
+<style scoped>
+body,
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f5f4f4;
+  font-size: 13px;
+  overflow: hidden;
+}
+@supports (display: grid) {
+  body,
+  html {
+    display: block;
+  }
+}
+
+.message {
+  border: 1px solid #d2d0d0;
+  padding: 2em;
+  font-size: 1.7vw;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+}
+@supports (display: grid) {
+  .message {
+    display: none;
+  }
+}
+
+.section {
+  display: none;
+  padding: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .section {
+    padding: 4rem;
+  }
+}
+@supports (display: grid) {
+  .section {
+    display: block;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1.5em;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 150px;
+  grid-auto-flow: row dense;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  background: #0c9a9a;
+  color: #fff;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  counter-increment: item-counter;
+  min-height: 150px;
+}
+.item:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+}
+.item:hover {
+  transform: scale(1.05);
+}
+.item:hover:after {
+  opacity: 0;
+}
+.item--medium {
+  grid-row-end: span 2;
+}
+.item--large {
+  grid-row-end: span 3;
+}
+.item--full {
+  grid-column-end: auto;
+}
+@media screen and (min-width: 768px) {
+  .item--full {
+    grid-column: 1/-1;
+    grid-row-end: span 2;
+  }
+}
+.item__details {
+  position: relative;
+  z-index: 1;
+  padding: 15px;
+  color: #444;
+  background: #fff;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  color: #828282;
+}
+.item__details:before {
+  content: counter(item-counter);
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-right: 0.5em;
+  color: #444;
+}
+</style>
