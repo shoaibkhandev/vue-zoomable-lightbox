@@ -1,7 +1,7 @@
 {
   "name": "vue-zoomable-lightbox",
   "description": "A zoomable image responsive lightbox component for Vuejs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Shoaib <shoaibkhandev@gmail.com>",
   "license": "MIT",
   "main": "dist/vue-zoomable-lightbox.min.js",
