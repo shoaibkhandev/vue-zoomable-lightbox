@@ -7,7 +7,7 @@
       :site-loading="siteLoading"
     />
     <section class="section">
-      <h1>Zoomable image lighbox for VueJs</h1>
+      <h1>Zoomable image lightbox for VueJs</h1>
       <div class="grid">
         <div
           v-for="(image, index) in media"

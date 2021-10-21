@@ -1,7 +1,12 @@
 # vue-zoomable-lightbox
 A zoomable image responsive lightbox component for based on [pexea12](https://github.com/pexea12/vue-image-lightbox)
 
+## Preview for Desktop
+
 ![vue-zoomable-lightbox-web](https://user-images.githubusercontent.com/28407876/138347254-a89faf83-656e-4fce-ae47-f64e2bb5c7dd.gif)
+
+## Preview for Mobile
+
 ![vue-zoomable-lightbox-mobile](https://user-images.githubusercontent.com/28407876/138347274-b5bfee6e-4125-4398-b9dc-7363e2ebb4fd.gif)
 
 
