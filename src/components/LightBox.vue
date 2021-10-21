@@ -54,11 +54,7 @@
               <pinch-zoom v-if="isMobile">
                 <img
                   :key="media[select].src"
-                  v-lazy="{
-                    src: media[select].src,
-                    loading: media[select].src,
-                    error: media[select].src,
-                  }"
+                  :src="media[select].src"
                   :srcset="media[select].srcset || ''"
                   class="vue-lb-modal-image"
                 />
@@ -96,7 +92,7 @@
               :key="
                 typeof image.src === 'string' ? `${image.src}${index}` : index
               "
-              v-lazy:background-image="image"
+              :style="{ backgroundImage: 'url(' + image.src + ')' }"
               :class="
                 'vue-lb-modal-thumbnail' + (select === index ? '-active' : '')
               "
@@ -151,6 +147,9 @@
 </template>
 
 <script>
+import PinchZoom from "vue-pinch-zoom";
+import InnerImageZoom from "vue-inner-image-zoom";
+import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
 import { isMobile } from "mobile-device-detect";
 import LeftArrowIcon from "./LeftArrowIcon";
 import RightArrowIcon from "./RightArrowIcon";
@@ -169,6 +168,8 @@ export default {
     RightArrowIcon,
     CloseIcon,
     VideoIcon,
+    PinchZoom,
+    InnerImageZoom,
   },
 
   props: {
@@ -179,7 +180,7 @@ export default {
 
     zoomScale: {
       type: Number,
-      default: .75
+      default: 2,
     },
 
     disableScroll: {
@@ -270,8 +271,8 @@ export default {
 
     language: {
       type: String,
-      default: "en"
-    }
+      default: "en",
+    },
   },
 
   data() {
@@ -284,14 +285,14 @@ export default {
       gesture: true,
       translations: {
         en: {
-          "pinch_to_zoom": "pinch to zoom",
-          "click_to_zoom": "click to zoom"
+          pinch_to_zoom: "pinch to zoom",
+          click_to_zoom: "click to zoom",
         },
         ar: {
-          "pinch_to_zoom": "قرصة للتكبير",
-          "click_to_zoom": "انقر للتكبير"
-        }
-      }
+          pinch_to_zoom: "قرصة للتكبير",
+          click_to_zoom: "انقر للتكبير",
+        },
+      },
     };
   },
 

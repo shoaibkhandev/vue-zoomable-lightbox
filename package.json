@@ -1,7 +1,7 @@
 {
   "name": "vue-zoomable-lightbox",
   "description": "A zoomable image responsive lightbox component for Vuejs",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "author": "Shoaib <shoaibkhandev@gmail.com>",
   "license": "MIT",
   "main": "dist/vue-zoomable-lightbox.min.js",
@@ -38,11 +38,7 @@
   "homepage": "https://github.com/shoaibkhandev/vue-zoomable-lightbox",
   "dependencies": {
     "@babel/runtime": "7.9.2",
-    "hammerjs": "^2.0.8",
-    "mobile-device-detect": "^0.4.3",
-    "vue-inner-image-zoom": "^1.1.1",
-    "vue-lazyload": "^1.3.2",
-    "vue-pinch-zoom": "^1.0.1"
+    "hammerjs": "^2.0.8"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
@@ -66,7 +62,10 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.0",
+    "mobile-device-detect": "^0.4.3",
+    "vue-inner-image-zoom": "^1.1.1",
+    "vue-pinch-zoom": "^1.0.1"
   },
   "vetur": {
     "tags": "dist/vetur/tags.json",

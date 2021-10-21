@@ -23,17 +23,15 @@ yarn dev
 Install the package:
 
 ```
-npm install vue-zoomable-lightbox vue-lazyload
-yarn add vue-zoomable-lightbox vue-lazyload
+npm install vue-zoomable-lightbox
+yarn add vue-zoomable-lightbox
 ```
 
 Globally in your project (main.js)
 ```javascript
 import Vue from 'vue'
-import VueLazyLoad from 'vue-lazyload'
 import LightBox from 'vue-zoomable-lightbox'
 
-Vue.use(VueLazyLoad)
 Vue.use(LightBox)
 ```
 
@@ -48,15 +46,19 @@ export default {
 }
 ```
 
+Import CSS style
+```javascript
+require('vue-zoomable-lightbox/dist/vue-zoomable-lightbox.min.css')
+// Use only when you are using Webpack
+```
+
 plugins/vue-zoomable-lightbox.js for Nuxt Js
 ```javascript
 import Vue from 'vue'
-import VueLazyLoad from 'vue-lazyload'
 import LightBox from 'vue-zoomable-lightbox'
 require('vue-zoomable-lightbox/dist/vue-zoomable-lightbox.min.css')
 
-Vue.use(VueLazyLoad)
-Vue.use(LightBox)
+Vue.component('light-box',LightBox)
 ```
 
 Inside nuxt.config.js add the plugin
@@ -64,21 +66,26 @@ Inside nuxt.config.js add the plugin
 { src: '~/plugins/vue-zoomable-lightbox.js', mode: 'client'},
 ```
 
-Import CSS style
-```javascript
-require('vue-zoomable-lightbox/dist/vue-zoomable-lightbox.min.css')
-// Use only when you are using Webpack
-```
 How to use:
 ```html
-<light-box :media="media"></light-box>
+<light-box ref="lightbox" :media="media"></light-box>
 ```
 
 How to use for Nuxt Js:
 ```html
 <client-only>
-  <light-box :media="media"></light-box>
+  <light-box ref="lightbox" :media="media"></light-box>
 </client-only>
+```
+
+How to use open lightbox
+```javascript
+this.$refs.lightbox.showImage(index) //index of media array
+```
+
+Show/Hide by default
+```html
+  <light-box ref="lightbox" :media="media" :show-light-box="false"></light-box>
 ```
 
 `media` has the structure:
@@ -116,7 +123,7 @@ How to use for Nuxt Js:
       <td>language</td>
       <td>String</td>
       <td>optional</td>
-      <td>en|ar</td>
+      <td>en or ar</td>
     </tr>
     <tr>
       <td>zoomScale</td>
